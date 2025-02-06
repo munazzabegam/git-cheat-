@@ -1,10 +1,7 @@
 <?php
 require_once 'db.php';
 
-// Only admin should access this page
-// You can add session checks here for authentication
 
-// Approve or reject the command
 if (isset($_GET['action']) && isset($_GET['id'])) {
     $id = $_GET['id'];
     $action = $_GET['action'];
@@ -22,7 +19,6 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     }
 }
 
-// Fetch all pending commands
 $sql = "SELECT * FROM commands WHERE status = 'pending'";
 $result = mysqli_query($conn, $sql);
 ?>
