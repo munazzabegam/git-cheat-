@@ -2,15 +2,13 @@
 session_start();
 require_once 'db.php';
 
-// Redirect if not logged in or not admin
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header("Location: login.php");
     exit();
 }
 
-// Handling approval & rejection of commands
 if (isset($_GET['action']) && isset($_GET['id'])) {
-    $id = intval($_GET['id']); // Prevent SQL injection
+    $id = intval($_GET['id']); 
     $action = $_GET['action'];
 
     if ($action === 'approve') {
@@ -30,11 +28,9 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     exit();
 }
 
-// Fetch pending commands
 $sql = "SELECT * FROM commands WHERE status = 'pending'";
 $result = mysqli_query($conn, $sql);
 
-// Fetch pending commands2
 $sql2 = "SELECT * FROM commands2 WHERE status = 'pending'";
 $result2 = mysqli_query($conn, $sql);
 ?>

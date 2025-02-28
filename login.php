@@ -4,9 +4,8 @@ require_once 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($conn, trim($_POST['username']));
-    $password = trim($_POST['password']); // Remove spaces
+    $password = trim($_POST['password']); 
 
-    // Check if the admin exists (case-sensitive)
     $query = "SELECT * FROM admins WHERE BINARY username='$username' LIMIT 1";
     $result = mysqli_query($conn, $query);
     $admin = mysqli_fetch_assoc($result);
@@ -16,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: admin.php");
         exit();
     } else {
-        $error = "❌ Invalid credentials!";
+        $error = "Invalid credentials!";
     }
 }
 ?>
