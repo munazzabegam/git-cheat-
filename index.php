@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Cheat Sheet</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@
         <!-- Main Content -->
         <div class="col-md-9">
             <!-- Popular Git Commands Section -->
-            <section id="popular-commands">
+            <!-- <section id="popular-commands">
                 <h2>Popular Git Commands</h2>
                 <div class="command-card">
                     <p class="command-title"><strong>git clone</strong></p>
@@ -60,11 +60,11 @@
                     <p>Update remote refs along with associated objects.</p>
                     <button class="copy-btn btn btn-primary">Copy</button>
                 </div>
-            </section>
+            </section> -->
 
             <!-- Git Cheat Sheet Section -->
             <div class="git-cheat-sheet">
-                <h2 class="text-center my-4">Git Cheat Sheet</h2>
+                <h2 class="text-center my-4">Command 1</h2>
 
                 <?php
                 require_once 'db.php';
@@ -92,6 +92,38 @@
 
                 <div class="text-center">
                     <a href="add_command.php" class="btn btn-success">Add Your Own Command</a>
+                </div>
+            </div>
+
+            <div class="git-cheat-sheet">
+                <h2 class="text-center my-4">Command 2</h2>
+
+                <?php
+                require_once 'db.php';
+
+                $sql = "SELECT * FROM commands2 WHERE status = 'approved'";
+                $result = mysqli_query($conn, $sql);
+
+                while ($row = mysqli_fetch_assoc($result)): ?>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= htmlspecialchars($row['description']); ?></h5>
+                            <pre class="command-text">
+                                <?php
+                                    $command = htmlspecialchars($row['command']);
+                                    $command = preg_replace_callback('/&lt;(.*?)&gt;/', function ($matches) {
+                                        return '<span class="editable" contenteditable="true">' . htmlspecialchars($matches[1]) . '</span>';
+                                    }, $command);
+                                    echo $command;
+                                ?>
+                            </pre>
+                            <button class="copy-btn btn btn-primary">Copy</button>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+
+                <div class="text-center">
+                    <a href="add_command2.php" class="btn btn-success">Add Your Own Command</a>
                 </div>
             </div>
 

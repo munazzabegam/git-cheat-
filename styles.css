@@ -89,7 +89,7 @@ body {
 }
 
 /* Command Card */
-.command-card {
+/* .command-card {
     background-color: #ffffff;
     border-radius: 12px;
     padding: 25px;
@@ -129,7 +129,7 @@ body {
 .command-card button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
-}
+} */
 
 /* Contact Section */
 #contact {
@@ -245,3 +245,59 @@ body {
     background-color: #007bff;
     color: white;
 }
+
+
+
+
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.admin-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.table th {
+    background: #007bff;
+    color: white;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.alert {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.logout-btn {
+    display: block;
+    text-align: right;
+    margin-bottom: 20px;
+    color: white;
+    background: red;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+

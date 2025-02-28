@@ -2,7 +2,7 @@
 $servername = "localhost"; 
 $username = "root";        
 $password = "";            
-$dbname = "git_cheat_website"; 
+$dbname = "git_cheatsheet"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
